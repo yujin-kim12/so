@@ -1,21 +1,17 @@
-# 오늘의 컨디션 기록
+# 암환자 케어·진료 준비 도우미
 
-한국어 모바일용 항암치료 데일리 기록 앱입니다. Vercel에서 정적 화면/API를 제공하고 Supabase Auth와 Postgres에 사용자별 기록을 저장합니다.
+암 치료 중인 환자가 컨디션과 증상을 기록하고, 진료용 요약과 의료비·복지 지원 정보를 확인할 수 있는 웹앱입니다.
 
-## 배포
+## 이용
 
-1. Supabase에서 프로젝트를 만들고 **SQL Editor**에서 `supabase/schema.sql`을 실행합니다. 이 SQL은 로그인한 사용자가 자기 기록만 읽고 수정할 수 있도록 RLS를 켭니다.
-2. Supabase **Project Settings → API**에서 Project URL과 publishable/anon 키를 확인합니다. `service_role` 키는 브라우저나 Vercel 환경 변수에 넣지 마세요.
-3. Vercel에서 GitHub 저장소 `yujin-kim12/so`를 새 프로젝트로 가져옵니다. Framework Preset은 **Other**, Root Directory는 저장소 루트로 둡니다.
-4. Vercel 프로젝트의 **Settings → Environment Variables**에 다음 값을 추가합니다.
-   - `SUPABASE_URL`: Supabase Project URL
-   - `SUPABASE_ANON_KEY`: Supabase publishable 또는 anon 키
-5. **Deployments**에서 최신 커밋을 재배포합니다. 첫 배포 후 Supabase **Authentication → URL Configuration**의 Site URL에 Vercel 도메인을 등록합니다.
-6. 배포된 URL을 열고 이메일 계정을 만든 다음 로그인합니다. 이메일 확인을 켜 둔 경우 인증 메일을 먼저 확인하세요.
+GitHub Pages에서 별도 로그인 없이 바로 사용할 수 있습니다.
+
+https://yujin-kim12.github.io/so/
 
 ## 데이터와 개인정보
 
-- 앱 기록은 Supabase 계정별 행에 저장하고, RLS 정책으로 본인 계정만 접근할 수 있게 합니다.
-- 현재 브라우저에도 계정별 임시 사본을 둡니다. 로그아웃은 브라우저 사본을 지우지 않으므로 개인 기기에서만 사용하고, 공용 기기에서는 브라우저 데이터를 정리하세요.
-- GitHub Pages의 `localStorage`는 다른 도메인인 Vercel에서 자동 이전되지 않습니다. 예전 기록을 옮기려면 기존 브라우저에서 별도로 복사/내보내야 합니다.
-- 이 앱은 기록 도구이며 진단이나 치료 조언을 제공하지 않습니다. 의료 관련 안내는 담당 의료진을 따르세요.
+- 기록은 현재 브라우저의 `localStorage`에만 저장됩니다.
+- 다른 기기와 동기화되지 않으며, 브라우저 데이터나 사이트 저장공간을 지우면 기록이 삭제될 수 있습니다.
+- 실제 환자 정보를 입력하지 마세요.
+- 앱은 진단이나 치료 조언을 제공하지 않습니다. 증상과 치료에 관한 판단은 담당 의료진과 상의하세요.
+- 지원 제도의 대상 여부와 최신 기준은 연결된 공식 기관에 확인하세요.
